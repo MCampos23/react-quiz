@@ -52,6 +52,60 @@ header h1 {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+.initial-window {
+  font-family: 'Roboto Condensed', sans-serif;
+
+}
+/* Estilos generales para el contenedor */
+select {
+  appearance: none; /* Elimina el estilo predeterminado del select */
+  padding: 10px 15px;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  color: #333;
+  background-color: #f7f7f7;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  outline: none;
+  cursor: pointer;
+}
+
+/* Efecto hover */
+select:hover {
+  border-color: #6c63ff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Efecto focus */
+select:focus {
+  border-color: #6c63ff;
+  box-shadow: 0 4px 12px rgba(108, 99, 255, 0.3);
+}
+
+/* Estilos para las opciones */
+select option {
+  padding: 10px;
+  background-color: #f7f7f7;
+  color: #333;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+}
+
+/* Alternar el color de fondo en las opciones */
+select option:nth-child(odd) {
+  background-color: #fafafa;
+}
+
+select option:nth-child(even) {
+  background-color: #f0f0f0;
+}
+
+/* Efecto en dispositivos con soporte para select abierto */
+select:active,
+select:focus-visible {
+  outline: none;
+}
 
 #last-try {
   max-width: 40rem;
@@ -88,6 +142,41 @@ header h1 {
   box-shadow: 1px 1px 8px 4px rgba(12, 5, 32, 0.6);
   text-align: center;
 }
+#quiz .question-progress {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+
+}
+#quiz .question-progress .question-number {
+  margin: auto;
+  padding: 1.25rem;
+  background: linear-gradient(180deg, #3e2a60 0%, #321061 100%);
+  border-radius: 50%;
+  /* box-shadow: 1px 1px 4px 1px rgba(0, 0, 0, 0.6); */
+  box-shadow: 1px 1px 8px 4px rgba(12, 5, 32, 0.6);
+  margin-bottom: 15px;
+  flex: 1 0 10%; 
+  box-sizing: border-box;
+  max-width: 75px;
+  max-height: 75px;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+#quiz .question-progress .question-number.current {
+  background: linear-gradient(180deg, #916cd1 0%, #9364d5 100%);
+}
+#quiz .question-progress .question-number.correct {
+  background: linear-gradient(180deg, #85be6f75 0%, #4eac58 100%);
+}
+#quiz .question-progress .question-number.incorrect {
+  background: linear-gradient(180deg, #d16c6c76 0%, #d5646474 100%);
+}
+#quiz .question-progress .question-number.skipped {
+  background: linear-gradient(180deg, #a8a5a576 0%, #9e9b9b9b 100%);
+}
+
 
 #question-overview {
   font-family: 'Roboto Condensed', sans-serif;

@@ -3,13 +3,13 @@ import Answers from "./Answers";
 import { useState } from "react";
 import QUESTIONS from "../questions";
 
-export default function Question({ index, onSelectAnswer, onSkipAnswer }) {
+export default function Question({ index, onSelectAnswer, onSkipAnswer, secondsPerQuestion }) {
   const [answer, setAnswer] = useState({
     selectedAnswer: "",
     isCorrect: null,
   });
 
-  let timer = 10000;
+  let timer = secondsPerQuestion;
 
   if (answer.selectedAnswer) {
     timer = 1000;
