@@ -1,6 +1,6 @@
-import { useState, useCallback } from "react";
-import QUESTIONS from "../questions";
+import { useState, useCallback, useMemo } from "react";
 import Question from "./Question";
+import QUESTIONS from "../questions.js";
 import Summary from "./Summary";
 import InitialWindow from "./InitialWindow";
 import QuestionProgress from "./QuestionProgress";
@@ -11,7 +11,12 @@ export default function Quiz() {
   const [secondsPerQuestion, setSecondsPerQuestion] = useState(null);
 
   const activeQuestionIndex = userAnswers.length;
-  const isFinished = activeQuestionIndex === QUESTIONS.length;
+  const isFinished = activeQuestionIndex === parseInt(numberOfQuestions);
+
+  const questions = useMemo(() => QUESTIONS.sort(() => Math.random() - 0.5).slice(
+    0,
+    numberOfQuestions
+  ), [numberOfQuestions]);
 
   const handleSelectAnswer = useCallback(function handleSelectAnswer(
     selectedAnswer
@@ -22,13 +27,15 @@ export default function Quiz() {
   },
   []);
 
+
+
   const handleSkipAnswer = useCallback(
     () => handleSelectAnswer(null),
     [handleSelectAnswer]
   );
 
   if (isFinished) {
-    return <Summary userAnswers={userAnswers} />;
+    return <Summary userAnswers={userAnswers} questions={questions} />;
   }
 
   return (
@@ -43,7 +50,7 @@ export default function Quiz() {
           <QuestionProgress
             activeQuestionIndex={activeQuestionIndex}
             userAnswers={userAnswers}
-            numberOfQuestions={numberOfQuestions}
+            questions={questions}
           />
           <Question
             key={activeQuestionIndex}
@@ -51,6 +58,7 @@ export default function Quiz() {
             onSelectAnswer={handleSelectAnswer}
             onSkipAnswer={handleSkipAnswer}
             secondsPerQuestion={secondsPerQuestion}
+            questions={questions}
           />
         </>
       )}

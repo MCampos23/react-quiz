@@ -62,13 +62,14 @@ select {
   padding: 10px 15px;
   font-size: 16px;
   font-family: Arial, sans-serif;
-  color: #333;
-  background-color: #f7f7f7;
+  color: #ffffff;
+  background-color: #6a558a;
   border: 2px solid #ddd;
   border-radius: 8px;
   transition: border-color 0.3s, box-shadow 0.3s;
   outline: none;
   cursor: pointer;
+  min-width: 100px;
 }
 
 /* Efecto hover */
@@ -86,7 +87,7 @@ select:focus {
 /* Estilos para las opciones */
 select option {
   padding: 10px;
-  background-color: #f7f7f7;
+  background-color: #6a558a;
   color: #333;
   font-size: 16px;
   font-family: Arial, sans-serif;

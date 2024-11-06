@@ -1,11 +1,10 @@
-import QUESTIONS from '../questions';
 
-export default function QuestionProgress({activeQuestionIndex, userAnswers, numberOfQuestions}) {
+export default function QuestionProgress({activeQuestionIndex, userAnswers, questions}) {
     return(
         <div className="question-progress">
-        {QUESTIONS.slice(0, numberOfQuestions).map((question, index) => {
+        {questions.map((question, index) => {
           let cssClass = "question-number";
-          let isCorrect = userAnswers[index] === QUESTIONS[index].answers[0];
+          let isCorrect = userAnswers[index] === questions[index].answers[0];
 
           if (index < activeQuestionIndex && activeQuestionIndex > 0) {
             if (isCorrect) {
