@@ -35,7 +35,7 @@ export default function Quiz() {
   );
 
   if (isFinished) {
-    return <Summary userAnswers={userAnswers} questions={questions} />;
+    return <Summary userAnswers={userAnswers} questions={questions} numberOfQuestions={numberOfQuestions} secondsPerQuestion={secondsPerQuestion} />;
   }
 
   return (
